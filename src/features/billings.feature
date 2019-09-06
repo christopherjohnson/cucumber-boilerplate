@@ -28,3 +28,14 @@ Feature: Billings
         And I click on the button "button[title='Delete']"
         And I wait on element ".detail.slds-text-align--center" for 10000ms to be enabled
         Then I expect that element ".detail.slds-text-align--center" contains the text "You cannot delete a posted record."
+
+    Scenario: Validate a billing cannot be posted with that is already posted
+        Given I open the site "/lightning/o/AcctSeed__Billing__c/list?filterName=Recent"
+        And I wait on element "a[title='00000002']" for 10000ms to be enabled
+        When I click on the link "00000002"
+        And I wait on element "div[title='Post']" for 10000ms to be enabled
+        And I click on the link "Post"
+        And I wait on element "[name*='vfFrameId']" for 10000ms to be enabled
+        And I switch the frame to "[name*='vfFrameId']"
+        And I wait on element ".messageCell" for 10000ms to be enabled
+        Then I expect that element ".messageCell" contains the text "The record has already been posted."
