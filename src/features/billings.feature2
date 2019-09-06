@@ -1,0 +1,6 @@
+Feature: Billings
+    Background: Navigate to billings list view
+        Given Given I open the site "/lightning/o/AcctSeed__Billing__c/list"
+
+    Scenario: The path should be /lightning/o/AcctSeed__Billing__c/list
+        Then I expect that the path is "/lightning/o/AcctSeed__Billing__c/list"
