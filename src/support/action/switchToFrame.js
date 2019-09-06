@@ -1,3 +1,4 @@
+import checkIfElementExists from '../lib/checkIfElementExists';
 /**
  * The frame to select
  * @param  {String}  selector The frame to select
