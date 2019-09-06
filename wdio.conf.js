@@ -68,7 +68,7 @@ exports.config = {
     //
     // Set a base URL in order to shorten getUrl command calls. If your getUrl
     // parameter starts with "/", then the base getUrl gets prepended.
-    baseUrl: "https://na112.salesforce.com",
+    baseUrl: sfdx.baseUrl,
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,

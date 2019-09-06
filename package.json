@@ -30,7 +30,7 @@
     "test": "run-s test:*",
     "test:lint": "eslint 'src/**/*.js' 'test/**/*.js!(setup.js)'",
     "test:unit": "jest --config=jest.json --detectOpenHandles",
-    "test:features": "npm run local-webserver & (wdio wdio.BUILD.conf.js; wdio_ret=$?; forever stopall; exit $wdio_ret)"
+    "test:features": "(wdio wdio.BUILD.conf.js)"
   },
   "dependencies": {
     "@babel/cli": "^7.2.3",
@@ -46,7 +46,9 @@
     "@wdio/spec-reporter": "^5.11.0",
     "@wdio/sync": "^5.11.0",
     "chai": "^4.1.2",
+    "child_process": "^1.0.2",
     "eslint-plugin-wdio": "^5.7.8",
+    "url": "^0.11.0",
     "webdriverio": "^5.11.0"
   },
   "devDependencies": {
