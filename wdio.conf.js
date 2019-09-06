@@ -1,5 +1,7 @@
 const path = require("path");
 const sfdx = require("./sfdx");
+require("require-guard")("./sfdx");
+
 exports.config = {
     //
     // ==================
@@ -68,7 +70,7 @@ exports.config = {
     //
     // Set a base URL in order to shorten getUrl command calls. If your getUrl
     // parameter starts with "/", then the base getUrl gets prepended.
-    baseUrl: sfdx.baseUrl,
+    baseUrl: sfdx.getBaseUrl(),
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -195,18 +197,7 @@ exports.config = {
         global.should = chai.should();
 
         try {
-            /*if (
-                global.isExistingSession === undefined ||
-                global.isExistingSession === false
-            ) {*/
-            console.log(
-                "\n\n\n\n\n\n\nasfdsadfsd ",
-                browser.url(sfdx.getSessionLoginUrl())
-            );
-            global.isExistingSession = true;
-            //console.log("\n\n\n\n\n\n\nasfdsadfsd ", sfdx.getSessionLoginUrl());
-            //console.log(browser.getUrl());
-            //}
+            browser.url(sfdx.getSessionLoginUrl());
         } catch (err) {
             console.log(err);
         }
