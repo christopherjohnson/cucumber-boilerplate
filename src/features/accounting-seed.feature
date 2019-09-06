@@ -4,6 +4,7 @@ Feature: Visit Accounting Seed
 
     Background:
         Given I open the site "/"
+        And I pause for 1000ms
 
     Scenario: access Accounting Seed
         Then I expect that the title contains "Salesforce"
