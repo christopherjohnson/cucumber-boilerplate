@@ -1,6 +1,7 @@
 Feature: Billings
     As a developer
     I want to validate a user cannot delete a posted billing
+    I want to validate a posted billing cannot be deleted
 
     #Background:
     #Given I open the site "/lightning/o/AcctSeed__Billing__c/list?filterName=Recent"
@@ -20,7 +21,7 @@ Feature: Billings
     Scenario: Validate a posted billing cannot be deleted
         Given I open the site "/lightning/o/AcctSeed__Billing__c/list?filterName=Recent"
         And I wait on element "a[title='00000001']" for 10000ms to be enabled
-        Given I click on the link "00000001"
+        When I click on the link "00000001"
         And I wait on element "div[title='Delete']" for 10000ms to be enabled
         And I click on the link "Delete"
         And I wait on element ".modal-container.slds-modal__container" for 10000ms to be enabled
